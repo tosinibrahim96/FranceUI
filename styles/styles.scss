@@ -1,0 +1,222 @@
+html {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #fde5db;
+  color: #28273c;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.intro-text {
+  h2 {
+    font-size: 25px;
+  }
+  h1 {
+    font-size: 57px;
+    margin-top: 1%;
+    line-height: 0.3;
+  }
+
+  p {
+    font-size: 12px;
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  a {
+    font-size: 12px;
+    text-decoration: none;
+    border-radius: 18px;
+    padding: 10px 30px 10px 30px;
+    background-color: #53519a;
+    color: #fcfcfb;
+  }
+}
+
+.header,
+.container {
+  width: 95%;
+  margin: 0 auto;
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-toggle span {
+      display: block;
+      width: 25px;
+      height: 4px;
+      margin-bottom: 5px;
+      background: #000;
+      border-radius: 3px;
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), display 0.55s ease;
+    }
+
+    .closed span {
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), display 0.55s ease;
+      &:nth-child(1) {
+        transform: rotate(45deg);
+        transform-origin: 5% -10%;
+      }
+
+      &:nth-child(2) {
+        display: none;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        transform-origin: 28% 190%;
+      }
+    }
+  }
+  .nav-items {
+    height: auto;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+
+    .nav-item {
+      padding: 3%;
+      padding-left: 0;
+      padding-right: 0;
+      text-decoration: none;
+      color: #28273c;
+
+      &:hover {
+        color: #7c729f;
+      }
+    }
+
+    &.collapsed {
+      max-height: 0;
+    }
+  }
+}
+
+.container .intro {
+  margin-top: 30%;
+  .intro-text {
+    width: 60%;
+  }
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  .intro-text {
+    h2 {
+      font-size: 33px;
+    }
+    h1 {
+      font-size: 65px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    a {
+      font-size: 20px;
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .top-nav {
+      .nav-toggle {
+        display: none;
+      }
+    }
+    .nav-items {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 50%;
+
+      .nav-item {
+        padding-left: 4%;
+        width: max-content;
+        text-decoration: none;
+      }
+
+      &.collapsed {
+        max-height: 40px;
+      }
+    }
+  }
+
+  .container .intro {
+    margin-top: 15%;
+    .intro-text {
+      width: 40%;
+    }
+  }
+
+  .intro-text {
+    p {
+      margin-top: 15%;
+      margin-bottom: 15%;
+    }
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .container .intro {
+    .intro-text {
+      width: 40%;
+    }
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .intro-text {
+    h2 {
+      font-size: calc(25px + 8 * ((100vw - 320px) / 960));
+    }
+    h1 {
+      font-size: calc(57px + 8 * ((100vw - 320px) / 960));
+    }
+
+    p {
+      font-size: calc(12px + 8 * ((100vw - 320px) / 960));
+    }
+
+    a {
+      font-size: calc(12px + 8 * ((100vw - 320px) / 960));
+    }
+  }
+}
